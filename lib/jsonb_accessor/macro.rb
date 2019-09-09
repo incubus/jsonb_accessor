@@ -29,7 +29,7 @@ module JsonbAccessor
         # Get field names to default values mapping
         names_and_defaults = field_types.each_with_object({}) do |(name, type), mapping|
           _type, options = Array(type)
-          field_default = options.try(:delete, :default)
+          field_default = options.try(:[], :default)
           mapping[name.to_s] = field_default unless field_default.nil?
         end
 
